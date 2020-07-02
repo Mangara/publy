@@ -1,7 +1,0 @@
-syntax: glob
-desktop.ini
-nbproject/private/
-build/
-dist/
-testOutput/
-data/PublySettings.xml
