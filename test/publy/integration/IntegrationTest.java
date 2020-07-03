@@ -66,6 +66,8 @@ public class IntegrationTest {
             tests.add(new Object[]{count});
             count++;
         }
+        
+        System.out.printf("Integration tests: %d test cases%n", count - 1);
 
         return tests;
     }
