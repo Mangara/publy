@@ -1,6 +1,11 @@
 # Publy - Change Log
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Changed
+- Replaced links to Bitbucket with GitHub
+
 
 ## [1.3] - 2017-10-21
 

@@ -89,7 +89,7 @@ public class AboutPanel extends javax.swing.JPanel {
         iconsByLabel = new javax.swing.JLabel();
         dotLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        websiteLink = new publy.gui.LinkLabel("the website", "https://bitbucket.org/Mangara/publy/downloads");
+        websiteLink = new publy.gui.LinkLabel("GitHub", "https://github.com/Mangara/publy/releases/latest");
         licenseLink = new publy.gui.LinkLabel("Apache License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0");
         iconsLink = new publy.gui.LinkLabel("VisualPharm", "http://www.visualpharm.com/");
         jCommanderLink = new publy.gui.LinkLabel("JCommander", "http://jcommander.org/");
@@ -107,7 +107,7 @@ public class AboutPanel extends javax.swing.JPanel {
 
         legalHeader.setText("Legal stuff");
 
-        copyrightLabel.setText("Copyright © 2013-2016 Sander Verdonschot.");
+        copyrightLabel.setText("Copyright © 2013-2020 Sander Verdonschot.");
 
         licensedLabel.setText("Licensed under the ");
 

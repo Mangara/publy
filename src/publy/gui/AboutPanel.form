@@ -196,7 +196,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="copyrightLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Copyright &#xa9; 2013-2014 Sander Verdonschot."/>
+        <Property name="text" type="java.lang.String" value="Copyright &#xa9; 2013-2020 Sander Verdonschot."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="licensedLabel">
@@ -248,7 +248,7 @@
     </Component>
     <Component class="publy.gui.LinkLabel" name="websiteLink">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new publy.gui.LinkLabel(&quot;the website&quot;, &quot;https://bitbucket.org/Mangara/publy/downloads&quot;)"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new publy.gui.LinkLabel(&quot;GitHub&quot;, &quot;https://github.com/Mangara/publy/releases/latest&quot;)"/>
       </AuxValues>
     </Component>
     <Component class="publy.gui.LinkLabel" name="licenseLink">
