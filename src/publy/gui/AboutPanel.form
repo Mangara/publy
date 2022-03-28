@@ -196,7 +196,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="copyrightLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Copyright &#xa9; 2013-2020 Sander Verdonschot."/>
+        <Property name="text" type="java.lang.String" value="Copyright &#xa9; 2013-2022 Sander Verdonschot."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="licensedLabel">

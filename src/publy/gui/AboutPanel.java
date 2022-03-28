@@ -107,7 +107,7 @@ public class AboutPanel extends javax.swing.JPanel {
 
         legalHeader.setText("Legal stuff");
 
-        copyrightLabel.setText("Copyright © 2013-2020 Sander Verdonschot.");
+        copyrightLabel.setText("Copyright © 2013-2022 Sander Verdonschot.");
 
         licensedLabel.setText("Licensed under the ");
 
