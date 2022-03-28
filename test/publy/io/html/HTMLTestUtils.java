@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
-import javax.swing.JTextPane;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import publy.Console;
@@ -36,10 +35,6 @@ import publy.data.settings.HTMLSettings;
 import publy.data.settings.Settings;
 import publy.io.TestUtils;
 
-/**
- *
- *
- */
 public class HTMLTestUtils {
 
     private static final Settings bibtexSettings = new Settings();

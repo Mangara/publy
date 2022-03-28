@@ -40,10 +40,6 @@ import publy.io.PublicationListWriter;
 import publy.io.ResourceLocator;
 import publy.io.TempWriter;
 
-/**
- *
- *
- */
 public class HTMLPublicationListWriter extends PublicationListWriter {
 
     private static final String GENERATED_COMMENT
@@ -51,7 +47,6 @@ public class HTMLPublicationListWriter extends PublicationListWriter {
             + "All changes to this file will be lost the next time Publy is run. "
             + "Change the template files in the 'data' directory instead.";
     private static final String DEFAULT_BASEJS_LOCATION = "data/base.js";
-    private static final String DEFAULT_GAJS_LOCATION = "data/ga.js";
     private static final Pattern LINK_PATTERN = Pattern.compile("(href|src)\\s*=\\s*\"([^\"]*)\"");
     private HTMLBibItemWriter itemWriter;
     private int count;
@@ -415,12 +410,24 @@ public class HTMLPublicationListWriter extends PublicationListWriter {
 
     private void writeJavascript(BufferedWriter out) throws IOException {
         // Google Analytics code
-        if (settings.getHtmlSettings().getGoogleAnalyticsUser() != null
-                && !settings.getHtmlSettings().getGoogleAnalyticsUser().isEmpty()) {
+        String gaUser = settings.getHtmlSettings().getGoogleAnalyticsUser();
+        
+        if (gaUser != null && !gaUser.isEmpty()) {
+            out.write("    <!-- Global site tag (gtag.js) - Google Analytics -->");
             out.newLine();
-            out.write("    <!-- Google Analytics JavaScript file -->");
+            out.write("    <script async src=\"https://www.googletagmanager.com/gtag/js?id=" + gaUser + "\"></script>");
             out.newLine();
-            out.write("    <script src=\"ga.js\" async></script>");
+            out.write("    <script>");
+            out.newLine();
+            out.write("      window.dataLayer = window.dataLayer || [];");
+            out.newLine();
+            out.write("      function gtag(){dataLayer.push(arguments);}");
+            out.newLine();
+            out.write("      gtag('js', new Date());");
+            out.newLine();
+            out.write("      gtag('config', '" + gaUser + "');");
+            out.newLine();
+            out.write("    </script>");
             out.newLine();
         }
     }
@@ -443,15 +450,6 @@ public class HTMLPublicationListWriter extends PublicationListWriter {
         Path baseJS = ResourceLocator.getFullPath(DEFAULT_BASEJS_LOCATION);
         Path targetBaseJS = targetDir.resolve("base.js");
         copyAuxiliaryFile(baseJS, targetBaseJS);
-
-        // Copy ga.js
-        if (settings.getHtmlSettings().getGoogleAnalyticsUser() != null
-                && !settings.getHtmlSettings().getGoogleAnalyticsUser().isEmpty()) {
-            Path gaJS = ResourceLocator.getBaseDirectory().resolve(DEFAULT_GAJS_LOCATION);
-            Path targetGaJS = targetDir.resolve("ga.js");
-
-            copyAuxiliaryFile(gaJS, targetGaJS, "/* ", " */", "~GAUSERACCOUNT~", settings.getHtmlSettings().getGoogleAnalyticsUser());
-        }
     }
 
     private void copyAuxiliaryFile(Path source, Path target) throws IOException {

@@ -4,7 +4,8 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Changed
-- Replaced links to Bitbucket with GitHub
+- Replaced links to Bitbucket with GitHub.
+- Switched to updated Google Analytics snippet, which is now inline instead of in `ga.js`.
 
 
 ## [1.3] - 2017-10-21
