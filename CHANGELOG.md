@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 - Replaced links to Bitbucket with GitHub.
 - Switched to updated Google Analytics snippet, which is now inline instead of in `ga.js`.
 
+### Fixed
+- The default header now loads jQuery over HTTPS instead of plain HTTP, as some browsers block resources loaded over HTTP on a HTTPS domain. This could prevent the dynamic elements (collapsible abstracts and BibTeX) from working.
 
 ## [1.3] - 2017-10-21
 
