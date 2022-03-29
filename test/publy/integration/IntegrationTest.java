@@ -57,7 +57,7 @@ public class IntegrationTest {
     public static Collection<Object[]> data() throws IOException {
         Files.createDirectories(WORKING_DIR);
         Console.setHeadless(true);
-        zipFs = FileSystems.newFileSystem(TEST_ARCHIVE);
+        zipFs = FileSystems.newFileSystem(TEST_ARCHIVE, null);
 
         Collection<Object[]> tests = new ArrayList<>();
         int count = 1;
