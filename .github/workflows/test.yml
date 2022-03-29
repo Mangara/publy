@@ -19,4 +19,4 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Run tests
-      run: ant -noinput -buildfile build.xml test
+      run: ant -noinput -buildfile build.xml -Dplatforms.JDK_11.home=$JAVA_HOME test
