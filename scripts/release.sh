@@ -127,12 +127,12 @@ if [ $opt_final ]
 then
     # Commit these changes
     echo -n "Committing changes... "
-    hg add "$ZIP_FILE"
-    hg remove --after
-    hg commit -m "Updated release zip."
+    git add -u # Make sure git picks up removal of old zip file
+    git add "$ZIP_FILE"
+    git commit -m "Update release v$version zip"
 
 
     # Tag the current revision with the release number
-    hg tag "v$version"
+    git tag -a "v$version" -m "Tag release v$version"
     echo "done."
 fi
