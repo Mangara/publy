@@ -28,11 +28,11 @@ done
 
 
 # Verify that this is being run on the release branch
-branch="$(hg branch)"
+branch="$(git branch)"
 
 if [ ! $branch = "release" ]
 then
-    echo "ERROR: Current branch is \"$branch\". To use this script, switch to the release branch with \"hg update release\", merge all the necessary changes from the main branch, then run this script again."
+    echo "ERROR: Current branch is \"$branch\". To use this script, switch to the release branch with \"git switch release\", merge all the necessary changes from the main branch, then run this script again."
     exit 1
 fi
 
@@ -85,14 +85,14 @@ fi
 
 # Clean and build the project
 echo "Cleaning and building the project... "
-ant -S clean
-ant -S jar
+ant -S -Dplatforms.JDK_11.home=$JAVA_HOME clean
+ant -S -Dplatforms.JDK_11.home=$JAVA_HOME jar
 echo "done."
 
 
 # Verify that all tests are passing
 echo "Verifying that all unit tests are passing... "
-ant -Dlibs.junit_4.classpath=/usr/share/java/junit4.jar test > "$TEST_OUTPUT" 2> "$TEST_OUTPUT"
+ant -Dplatforms.JDK_11.home=$JAVA_HOME -Dlibs.junit_4.classpath=/usr/share/java/junit4.jar test > "$TEST_OUTPUT" 2> "$TEST_OUTPUT"
 if grep -Fq "FAILED" "$TEST_OUTPUT"
 then
     echo "ERROR: Some tests failed. For details, see \"$TEST_OUTPUT\"."
