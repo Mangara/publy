@@ -27,16 +27,6 @@ do
 done
 
 
-# Verify that this is being run on the release branch
-branch="$(git branch)"
-
-if [ ! $branch = "release" ]
-then
-    echo "ERROR: Current branch is \"$branch\". To use this script, switch to the release branch with \"git switch release\", merge all the necessary changes from the main branch, then run this script again."
-    exit 1
-fi
-
-
 # Get the version number from Constants.java
 versionRegex="_VERSION ?= ?([0-9][0-9]*);"
 
