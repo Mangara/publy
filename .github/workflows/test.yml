@@ -16,7 +16,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '8'
         distribution: 'adopt'
     - name: Run tests
-      run: ant -noinput -buildfile build.xml -Dplatforms.JDK_11.home=$JAVA_HOME test
+      run: ant -noinput -buildfile build.xml -Dplatforms.JDK_1.8.home=$JAVA_HOME test
