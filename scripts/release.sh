@@ -56,33 +56,33 @@ then
 fi
 
 # Check that the date is correct
-changelogDateRegex="([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])"
-[[ $latestVersionChangeLine =~ $changelogDateRegex ]]
-changelogDate="${BASH_REMATCH[1]}"
+# changelogDateRegex="([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])"
+# [[ $latestVersionChangeLine =~ $changelogDateRegex ]]
+# changelogDate="${BASH_REMATCH[1]}"
 
-if [[ -z $changelogDate ]]
-then
-    echo "ERROR: The change log does not specify a date for the latest version."
-    exit 1
-fi
+# if [[ -z $changelogDate ]]
+# then
+#     echo "ERROR: The change log does not specify a date for the latest version."
+#     exit 1
+# fi
 
-if [[ ! $changelogDate = "$(date +'%Y-%m-%d')" ]]
-then
-    echo "ERROR: Latest change log version date (${changelogDate}) does not match today's date ($(date +'%Y-%m-%d'))."
-    exit 1
-fi
+# if [[ ! $changelogDate = "$(date +'%Y-%m-%d')" ]]
+# then
+#     echo "ERROR: Latest change log version date (${changelogDate}) does not match today's date ($(date +'%Y-%m-%d'))."
+#     exit 1
+# fi
 
 
 # Clean and build the project
 echo "Cleaning and building the project... "
-ant -S -Dplatforms.JDK_11.home=$JAVA_HOME clean
-ant -S -Dplatforms.JDK_11.home=$JAVA_HOME jar
+ant -S -Dplatforms.JDK_1.8.home=$JAVA_HOME clean
+ant -S -Dplatforms.JDK_1.8.home=$JAVA_HOME jar
 echo "done."
 
 
 # Verify that all tests are passing
 echo "Verifying that all unit tests are passing... "
-ant -Dplatforms.JDK_11.home=$JAVA_HOME -Dlibs.junit_4.classpath=/usr/share/java/junit4.jar test > "$TEST_OUTPUT" 2> "$TEST_OUTPUT"
+ant -Dplatforms.JDK_1.8.home=$JAVA_HOME -Dlibs.junit_4.classpath=/usr/share/java/junit4.jar test > "$TEST_OUTPUT" 2> "$TEST_OUTPUT"
 if grep -Fq "FAILED" "$TEST_OUTPUT"
 then
     echo "ERROR: Some tests failed. For details, see \"$TEST_OUTPUT\"."
